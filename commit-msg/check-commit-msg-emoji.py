@@ -47,7 +47,7 @@ def main(allowable: list[str], commit_msg: Path) -> None:
 
 if __name__ == "__main__":
     parser: ArgumentParser = ArgumentParser()
-    parser.add_argument("--allowable", action="append", default=[], help="Allowable emoji codes")
+    parser.add_argument("--allowable", nargs="+", action="append", default=[], help="Allowable emoji codes")
     parser.add_argument("commitmsg", type=Path, help="Commit message")
     args: Namespace = parser.parse_args()
 
