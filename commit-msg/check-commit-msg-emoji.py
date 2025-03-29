@@ -18,21 +18,16 @@ class Gitmoji:
     semver: Optional[str]
 
 
-def main(allowable: list[str], commit_msg: Path) -> None:
+def main(commit_msg: Path) -> None:
 
     # Load the Gitmoji JSON data
     gitmojis = [Gitmoji(**gitmoji) for gitmoji in json.load(open("/etc/gitmojis.json"))["gitmojis"]]
 
-    # only allowable gitmojis
-    gitmojis = list(filter(lambda x: (x.code in allowable) or (x.emoji in allowable), gitmojis))
-
     # Check if the commit message starts with a Gitmoji
-    msg: str = commit_msg.read_text()
+    msg: str = commit_msg.read_text().split()[0]
     err: bool = True
     for gitmoji in gitmojis:
-        startswith_emoji = msg.startswith(gitmoji.emoji)
-        startswith_code = msg.startswith(gitmoji.code)
-        if startswith_emoji or startswith_code:
+        if msg == gitmoji.emoji or gitmoji.code:
             err = False
             break
 
@@ -47,8 +42,7 @@ def main(allowable: list[str], commit_msg: Path) -> None:
 
 if __name__ == "__main__":
     parser: ArgumentParser = ArgumentParser()
-    parser.add_argument("--allowable", nargs="+", action="append", default=[], help="Allowable emoji codes")
-    parser.add_argument("commitmsg", type=Path, help="Commit message")
+    parser.add_argument("commitmsg", type=Path, nargs=1, help="Commit message")
     args: Namespace = parser.parse_args()
 
-    main(args.allowable, args.commitmsg)
+    main(args.commitmsg)
