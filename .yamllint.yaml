@@ -1,0 +1,4 @@
+yaml-files:
+  - '*.yaml'
+  - '*.yml'
+  - '.yamllint'

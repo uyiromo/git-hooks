@@ -1,0 +1,146 @@
+#
+# markdown
+#
+- id: markdownlint
+  name: markdownlint
+  entry: markdownlint
+  language: docker
+  types: [markdown]
+  require_serial: true
+- id: markdownlint-fix
+  name: markdownlint-fix
+  entry: markdownlint --fix
+  language: docker
+  types: [markdown]
+  require_serial: true
+#
+# python
+#
+- id: black
+  name: black
+  entry: black --config pyproject.toml
+  language: docker
+  types: [python]
+  require_serial: true
+- id: isort
+  name: isort
+  entry: isort
+  language: docker
+  types: [python]
+  require_serial: true
+- id: flake8
+  name: flake8
+  entry: flake8 --config .flake8
+  language: docker
+  types: [python]
+  require_serial: true
+- id: mypy
+  name: mypy
+  entry: mypy --config-file pyproject.toml
+  language: docker
+  types: [python]
+  require_serial: true
+#
+# shell
+#
+- id: shfmt
+  name: shfmt
+  entry: shfmt --filename .editorconfig
+  language: docker
+  types: [shell]
+  require_serial: true
+- id: shellcheck
+  name: shellcheck
+  entry: shellcheck
+  language: docker
+  types: [shell]
+  require_serial: true
+#
+# toml
+#
+- id: taplo-format
+  name: taplo-format
+  entry: env RUST_LOG=error taplo format --config .taplo.toml
+  language: docker
+  types: [toml]
+  require_serial: true
+- id: taplo-lint
+  name: taplo-lint
+  entry: env RUST_LOG=error taplo lint --config .taplo.toml
+  language: docker
+  types: [toml]
+  require_serial: true
+#
+# yaml
+#
+- id: yamlfmt
+  name: yamlfmt
+  entry: yamlfmt -conf .yamlfmt.yaml
+  language: docker
+  types: [yaml]
+  require_serial: true
+- id: yamllint
+  name: yamllint
+  entry: yamllint -c .yamllint.yaml
+  language: docker
+  types: [yaml]
+  require_serial: true
+#
+# json
+#
+- id: js-beautify
+  name: js-beautify
+  entry: js-beautify --replace --quiet
+  language: docker
+  types: [json]
+  require_serial: true
+- id: eslint/json
+  name: eslint/json
+  entry: eslint --config eslint-json.config.mjs
+  language: docker
+  types: [json]
+  require_serial: true
+#
+# javascript
+#
+- id: eslint-fix
+  name: eslint-fix
+  entry: eslint --config eslint.config.mjs --fix
+  language: docker
+  types: [javascript]
+  require_serial: true
+- id: eslint
+  name: eslint
+  entry: eslint --config eslint.config.mjs
+  language: docker
+  types: [javascript]
+  require_serial: true
+#
+# docker
+#
+- id: hadolint
+  name: hadolint
+  entry: hadolint --config .hadolint.yaml
+  language: docker
+  types: [dockerfile]
+  require_serial: true
+#
+# emoji (pre-commit)
+#
+- id: emoji
+  name: emoji
+  entry: check-commit-msg-emoji
+  language: docker
+  types: []
+  require_serial: true
+  stages: [commit-msg]
+#
+# sm-latest (pre-push)
+#
+- id: sm-latest
+  name: sm-latest
+  entry: sm-latest
+  language: docker
+  types: []
+  require_serial: true
+  stages: [pre-push]

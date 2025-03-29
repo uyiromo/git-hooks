@@ -1,0 +1,55 @@
+repos:
+  - repo: https://github.com/uyiromo/pre-commit
+    rev: v1.0
+    hooks:
+      - id: markdownlint-format
+      - id: markdownlint-lint
+      - id: black
+      - id: isort
+      - id: flake8
+      - id: mypy
+      - id: shfmt
+      - id: shellcheck
+      - id: shchk
+      - id: taplo-format
+      - id: taplo-lint
+      - id: yamlfmt
+      - id: yamllint
+      - id: js-beautify
+      - id: eslint/json
+      - id: eslint-fix
+      - id: eslint
+      - id: hadolint
+      - id: emoji
+        args:
+          - '--allowable'
+          - ':art:'
+          - ':zap:'
+          - ':fire:'
+          - ':bug:'
+          - ':sparkles:'
+          - ':memo:'
+          - ':rocket:'
+          - ':tada:'
+          - ':rotating_light:'
+          - ':construction:'
+          - ':arrow_up:'
+          - ':recycle:'
+          - ':wrench:'
+          - ':hammer:'
+          - ':pencil2:'
+          - ':twisted_rightwards_arrows:'
+          - ':boom:'
+          - ':bulb:'
+          - ':loud_sound:'
+          - ':mute:'
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+        args: ['--fix=lf']
+      - id: no-commit-to-branch
+        args: ['--branch', 'main']
+      - id: trailing-whitespace
