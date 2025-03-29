@@ -55,6 +55,12 @@
   language: docker
   types: [shell]
   require_serial: true
+- id: shchk
+  name: shchk
+  entry: shchk
+  language: docker
+  types: [shell]
+  require_serial: true
 #
 # toml
 #
