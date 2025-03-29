@@ -104,8 +104,7 @@ RUN apt-get install -y \
     --no-install-recommends \
     shfmt \
     shellcheck
-COPY ./requirements-types.txt /tmp/requirements-types.txt
-COPY ./scripts/shchk.py /usr/local/bin/shchk
+COPY ./pre-commit/shchk.py /usr/local/bin/shchk
 RUN chmod +x /usr/local/bin/shchk
 
 # .toml
