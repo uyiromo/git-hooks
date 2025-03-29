@@ -139,6 +139,7 @@
   language: docker
   types: []
   require_serial: true
+  stages: [commit-msg]
 #
 # sm-latest (pre-push)
 #
