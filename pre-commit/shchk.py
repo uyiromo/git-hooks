@@ -27,7 +27,7 @@ def check(file: str) -> bool:
 
 def main() -> None:
     parser = ArgumentParser()
-    parser.add_argument("files")
+    parser.add_argument("files", nargs="*", action="append", help="Files to check")
     args = parser.parse_args()
 
     ok: bool = True
