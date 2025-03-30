@@ -1,9 +1,9 @@
 repos:
-  - repo: https://github.com/uyiromo/pre-commit
-    rev: v1.0
+  - repo: https://github.com/uyiromo/git-hooks
+    rev: v0.5
     hooks:
-      - id: markdownlint-format
-      - id: markdownlint-lint
+      - id: markdownlint-fix
+      - id: markdownlint
       - id: black
       - id: isort
       - id: flake8
@@ -21,28 +21,6 @@ repos:
       - id: eslint
       - id: hadolint
       - id: emoji
-        args:
-          - '--allowable'
-          - ':art:'
-          - ':zap:'
-          - ':fire:'
-          - ':bug:'
-          - ':sparkles:'
-          - ':memo:'
-          - ':rocket:'
-          - ':tada:'
-          - ':rotating_light:'
-          - ':construction:'
-          - ':arrow_up:'
-          - ':recycle:'
-          - ':wrench:'
-          - ':hammer:'
-          - ':pencil2:'
-          - ':twisted_rightwards_arrows:'
-          - ':boom:'
-          - ':bulb:'
-          - ':loud_sound:'
-          - ':mute:'
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
     hooks:
