@@ -1,5 +1,1 @@
-[tool.black]
-line-length = 120
-
-[tool.mypy]
-disable_error_code = [ "import-not-found", "import-untyped" ]
+configs/pyproject.toml
