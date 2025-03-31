@@ -10,7 +10,7 @@ def check(file: str) -> bool:
 
     lines: list[str] = open(file).readlines()
     for line in lines:
-        if line.rstrip() == "set -eu":
+        if line.rstrip() in ("set -eu", "set -ue"):
             eu = True
         elif line.rstrip() == "set -o pipefail":
             pipefail = True
@@ -27,7 +27,7 @@ def check(file: str) -> bool:
 
 def main() -> None:
     parser = ArgumentParser()
-    parser.add_argument("files", nargs="*", action="append", help="Files to check")
+    parser.add_argument("files", nargs="*", help="Files to check")
     args = parser.parse_args()
 
     ok: bool = True
