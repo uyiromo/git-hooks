@@ -45,7 +45,7 @@
 #
 - id: shfmt
   name: shfmt
-  entry: test -e .editorconfig && shfmt -w
+  entry: "test -e .editorconfig && shfmt -w"
   language: docker
   types: [shell]
   require_serial: true
