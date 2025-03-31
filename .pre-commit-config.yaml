@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/uyiromo/git-hooks
-    rev: v0.6
+    rev: main
     hooks:
       - id: markdownlint-fix
       - id: markdownlint
