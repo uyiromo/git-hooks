@@ -48,18 +48,21 @@
   entry: shfmt -w
   language: docker
   types: [shell]
+  exclude_types: [zsh]
   require_serial: true
 - id: shellcheck
   name: shellcheck
   entry: shellcheck
   language: docker
   types: [shell]
+  exclude_types: [zsh]
   require_serial: true
 - id: shchk
   name: shchk
   entry: shchk
   language: docker
   types: [shell]
+  exclude_types: [zsh]
   require_serial: true
 #
 # toml
