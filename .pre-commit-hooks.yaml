@@ -24,7 +24,7 @@
   require_serial: true
 - id: isort
   name: isort
-  entry: isort
+  entry: isort --profile black
   language: docker
   types: [python]
   require_serial: true
